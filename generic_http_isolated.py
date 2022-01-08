@@ -7,6 +7,8 @@ import json
 
 logger = logging.getLogger(__name__)
 
+# GenericHttp class
+
 class GenericHttp:
     """
     A class which takes an HTTP object as input and abstracts it to allow a generic set of methods to run against it.
@@ -24,8 +26,10 @@ class GenericHttp:
 
     This class allows any of those 3 objects to be passed in, and creates a uniform set of methods for working with their properties.
     """
+    
     def __init__(self, http_object):
-        """Initialise the object with the following parameters:
+        """
+        Initialise the object with the following parameters:
             * object_type = the type of the object, for calling the correct methods to extract its properties
             * has_json = boolean to represent whether or not the body contains JSON
             * basic_info = Dictionary of fundamental elements of the object (method, url, whether it is a resopnse, etc)
@@ -195,6 +199,9 @@ class GenericHttp:
             logger.info("JSON dumped to " + full_file_string)
         else: 
             logger.info(self.body)
+
+
+# Helper functions
 
 def get_params_from_url(url):
     logger.info("Retrieving params from URL: " + url)
